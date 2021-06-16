@@ -16,6 +16,8 @@
 
 ## Deploy the Operator
 
+- TODO: First download the bundle.yaml locally and sed namespace: default to namespace: monitoring
+
 1. To deploy the operator and CRDs we can use the official [bundle.yaml](https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/master/bundle.yaml) file.
   ```
   kubectl create ns monitoring
