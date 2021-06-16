@@ -1,4 +1,4 @@
-# Elastic Workshop
+# Prometheus Operator Workshop
 
 ![prometheus](/images/prometheus.png)
 
@@ -13,11 +13,8 @@ After this tutorial you will understand the different components of the Promethe
 ## Agenda
 
 - Lab 01: Deploy the Prometheus Operator
-- Lab 02: Deploy Elasticsearch using ECK Operator
-- Lab 03: Deploy Kibana using ECK Operator
-- Lab 04: Deploy Filebeat using ECK Operator
-- Lab 05: Deploy Logstash using helm
+- Lab 02: Deploy Prometheus using the Operator and CRDs
 
 ## Notes
 
-You can find all the required files under "./logging-lab" and the demo app at "./demo-app"
+You can find all the required files under "./monitoring-lab" and the demo app at "./demo-app"

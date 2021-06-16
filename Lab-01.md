@@ -5,7 +5,6 @@
  - Configure your workspace
  - Deploy the Operator
 
-
 ## Configure your workspace
 
 - The prometheus operator can be deployed by using the [kube-prometheus-stack](https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack) helm chart which deploys the prometheus operator as well as the whole prometheus stack already configured to monitor the Kubernetes cluster. However instead of using the helm chart we will be deploying each part separately and understand how each component works.

@@ -1,4 +1,4 @@
-# Lab 01: Deploy Elasticsearch using the ECK Operator
+# Lab 01: Deploy Prometheus using the Operator and CRDs
 
 ## Tasks
 
