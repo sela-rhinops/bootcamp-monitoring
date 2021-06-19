@@ -17,6 +17,8 @@ mkdir ~/monitoring-lab/node-exporter
 
 ## Create Node Exporter configuration files
 
+- A Prometheus Exporter is a piece of software that. Can fetch statistics from another, non-Prometheus system. Can turn those statistics into Prometheus metrics, using a client library. Starts a web server that exposes a /metrics URL, and have that URL display the system metrics. In this lab we will be deploying the node_exporter which is just a binary that exposes all the server metrics through it's /metrics endpoint.
+
 1. Now let's create all the Kubernetes configuration files needed to deploy Node Exporter. The first file is Node Exporter itself (I will use vim, you can use a different editor)
 
 ```
@@ -127,7 +129,7 @@ spec:
       maxUnavailable: 10%
     type: RollingUpdate
 ```
-As you may have noticed the "kind" of this object is DaemonSet this means that there will be always one pod deployed in each of the nodes ensuring that we are always collecting metrics from all of them.
+  -  By using the DaemonSet kubernetes object we are ensureing that there is one instance of node_exporter on all the nodes of the cluster.
 
 3. The above configuration expects a service account with the necessary permissions required for monitoring in the kubernetes cluster. Let's create the service account:
 ```
