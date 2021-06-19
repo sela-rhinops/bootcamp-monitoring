@@ -1,4 +1,4 @@
-# Lab 01: Deploy Node Exporter and configure Prometheus
+# Lab 03: Deploy Node Exporter and configure Prometheus
 
 ## Tasks
 

@@ -14,6 +14,10 @@ After this tutorial you will understand the different components of the Promethe
 
 - Lab 01: Deploy the Prometheus Operator
 - Lab 02: Deploy Prometheus using the Operator and CRDs
+- Lab 03: Deploy Node Exporter and configure Prometheus
+- Lab 04: Deploy Grafana and configure Dashboards
+- Lab 05: Deploy Alertmanager and configure Alerts
+- Lab 06: Deploy kube-state-metrics and configure Dashboards and Alerts
 
 ## Notes
 
