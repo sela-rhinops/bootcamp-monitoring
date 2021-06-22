@@ -17,8 +17,7 @@ After this tutorial you will understand the different components of the Promethe
 - Lab 03: Deploy Node Exporter and configure Prometheus
 - Lab 04: Deploy Grafana and configure Dashboards
 - Lab 05: Deploy Alertmanager and configure Alerts
-- Lab 06: Deploy kube-state-metrics and configure Dashboards and Alerts
 
 ## Notes
 
-You can find all the required files under "./monitoring-lab" and the demo app at "./demo-app"
+You can find all the required files under "./monitoring-lab"
