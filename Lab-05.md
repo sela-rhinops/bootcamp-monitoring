@@ -88,12 +88,51 @@ stringData:
         - to: email@mail.com
 ```
 
-5. We will also need a Service to be able to access the alertmanager UI, for this workshop we will be using a NodePort servive
+
+5. Another way of configuring Alertmanager is by usnig the "AlertmanagerConfig" CRD. This CRD will be captured by the operator and configure Alertmanger. It is possible to use both methods together. Let's create the AlermanagerConfig yaml:
+```
+vim  ~/monitoring-lab/alertmanager/alertmanagerconfig.yaml
+```
+
+6. The content of the file should be the below:
+```
+apiVersion: monitoring.coreos.com/v1alpha1
+kind: AlertmanagerConfig
+metadata:
+  name: config-example
+  labels:
+    alertmanagerConfig: example
+spec:
+  route:
+    groupBy: ['job']
+    groupWait: 30s
+    groupInterval: 5m
+    repeatInterval: 12h
+    receiver: 'wechat-example'
+  receivers:
+  - name: 'wechat-example'
+    wechatConfigs:
+    - apiURL: 'http://wechatserver:8080/'
+      corpID: 'wechat-corpid'
+      apiSecret:
+        name: 'wechat-config'
+        key: 'apiSecret'
+---
+apiVersion: v1
+kind: Secret
+type: Opaque
+metadata:
+  name: wechat-config
+data:
+  apiSecret: d2VjaGF0LXNlY3JldAo=
+```
+
+7. We will also need a Service to be able to access the alertmanager UI, for this workshop we will be using a NodePort servive
 ```
 vim ~/monitoring-lab/alertmanager/service.yaml
 ```
 
-6. The content of the file should be the below
+8. The content of the file should be the below
 ```
 apiVersion: v1
 kind: Service
@@ -111,12 +150,12 @@ spec:
     alertmanager: demo
 ```
 
-7. And we will also configure alertmanager as a target for prometheus by using the ServiceMonitor CRD
+9. And we will also configure alertmanager as a target for prometheus by using the ServiceMonitor CRD
 ```
 vim ~/monitoring-lab/alertmanager/service-monitor.yaml
 ```
 
-8. The content of the file should be the below
+10. The content of the file should be the below
 ```
 ---
 apiVersion: monitoring.coreos.com/v1
