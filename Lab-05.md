@@ -89,7 +89,7 @@ stringData:
 ```
 
 
-5. Another way of configuring Alertmanager is by usnig the "AlertmanagerConfig" CRD. This CRD will be captured by the operator and configure Alertmanger. It is possible to use both methods together. Let's create the AlermanagerConfig yaml:
+5. Another way of configuring Alertmanager is by using the "AlertmanagerConfig" CRD. This CRD will be captured by the operator and configure Alertmanger. It is possible to use both methods together. Let's create the AlertmanagerConfig yaml:
 ```
 vim  ~/monitoring-lab/alertmanager/alertmanagerconfig.yaml
 ```
