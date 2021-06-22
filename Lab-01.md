@@ -18,18 +18,32 @@
 
 - TODO: First download the bundle.yaml locally and sed namespace: default to namespace: monitoring
 
-1. To deploy the operator and CRDs we can use the official [bundle.yaml](https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/master/bundle.yaml) file.
+- To deploy the operator and CRDs we can use the official [bundle.yaml](https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/master/bundle.yaml) file.
+
+1. With the default configuration it deploys the operator in the default namespace but we will change it to deploy it in the monitoring namespace that we will create. First download the file
+```
+sudo wget -P ~/monitoring-lab/operator https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/master/bundle.yaml
+```
+
+2. Replace "namespace: default" to "namespace: monitoring" in the ClusterRoleBinding, Deployment, ServiceAccount and Service of the operator in the bundle.yaml file we downloaded
+
+3. Now we can use kubectl to create the monitoring namespace and apply the bundle.yaml file
   ```
   kubectl create ns monitoring
   kubectl apply -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/master/bundle.yaml -n monitoring
   ```
 
-2. After deploying the operator wait until the Operator's Pod is up and Running
+4. After deploying the operator wait until the Operator's Pod is up and Running
   ```
   kubectl get po -w -n monitoring
   ```
 
-3. To see the operator's logs use the following command
+5. To see the operator's logs use the following command
   ```
   kubectl logs -n monitoring prometheus-operator-<uuid>-<uuid>
+  ```
+
+6. We can see what CRDs are deployed in the cluster by using the following command:
+  ```
+  kubectl get crds
   ```
