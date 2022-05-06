@@ -34,6 +34,9 @@ metadata:
 spec:
   version: v0.22.2
   replicas: 1
+  alertmanagerConfigSelector:
+    matchLabels:
+      alertmanagerConfig: config-example
   resources:
     requests:
       cpu: 100m
@@ -245,7 +248,7 @@ kubectl apply -f ~/monitoring-lab/alertmanager/demo-rules.yaml
 ```
 4. To see the alerts that were deployed using CRDs we can use:
 ```
-kubectl get prometheusrules -n  --all-namespaces
+kubectl get prometheusrules --all-namespaces
 ```
 
 ## View Alerts
