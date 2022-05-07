@@ -44,7 +44,6 @@ spec:
     limits:
       cpu: 300m
       memory: 512Mi
-
 ```
   - We are using the "kind" Alertmanager which is also a CRD that is managed by the operator.
 

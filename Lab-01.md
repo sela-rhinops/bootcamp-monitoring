@@ -20,7 +20,7 @@
 
 1. With the default configuration it deploys the operator in the default namespace but we will change it to deploy it in the monitoring namespace that we will create. First download the file
 ```
-sudo wget -P ~/monitoring-lab/operator https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/master/bundle.yaml
+wget -P ~/monitoring-lab/operator https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/master/bundle.yaml
 ```
 
 2. Replace "namespace: default" to "namespace: monitoring" in the ClusterRoleBinding, Deployment, ServiceAccount and Service of the operator in the bundle.yaml file we downloaded

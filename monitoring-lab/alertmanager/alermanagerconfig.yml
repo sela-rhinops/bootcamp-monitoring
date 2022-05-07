@@ -19,7 +19,6 @@ spec:
       apiSecret:
         name: 'wechat-config'
         key: 'apiSecret'
-
 ---
 apiVersion: v1
 kind: Secret
