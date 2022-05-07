@@ -1,15 +1,18 @@
----
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: grafana
+  name: alertmanager
   namespace: monitoring
   labels:
     team: devops-bootcamp
 spec:
   endpoints:
-  - honorLabels: true
-    port: ui
+  - interval: 15s
+    port: web
+    scrapeTimeout: 15s
+  namespaceSelector:
+    matchNames:
+    - monitoring
   selector:
     matchLabels:
-      app: grafana
+      operated-alertmanager: "true"

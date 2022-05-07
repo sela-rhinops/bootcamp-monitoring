@@ -259,7 +259,7 @@ kubectl apply -f ~/monitoring-lab/grafana/ -n monitoring
 
 2. It may take up to a few minutes until all the resources are created and prometheus is ready for use. You can see the status of the pod with:
 ```
-kubectl get po -n monitoring -w
+  kubectl get po -n monitoring -w
 ```
 
 3. You can also get an overview of all ServiceMonitors that were deployed using crds by using:

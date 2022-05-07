@@ -16,21 +16,22 @@
 
 ## Deploy the Operator
 
-- TODO: First download the bundle.yaml locally and sed namespace: default to namespace: monitoring
-
 - To deploy the operator and CRDs we can use the official [bundle.yaml](https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/master/bundle.yaml) file.
 
 1. With the default configuration it deploys the operator in the default namespace but we will change it to deploy it in the monitoring namespace that we will create. First download the file
 ```
-sudo wget -P ~/monitoring-lab/operator https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/master/bundle.yaml
+wget -P ~/monitoring-lab/operator https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/master/bundle.yaml
 ```
 
 2. Replace "namespace: default" to "namespace: monitoring" in the ClusterRoleBinding, Deployment, ServiceAccount and Service of the operator in the bundle.yaml file we downloaded
+```
+sed -i 's/namespace: default/namespace: monitoring/g'  ~/monitoring-lab/operator/bundle.yaml
+```
 
 3. Now we can use kubectl to create the monitoring namespace and apply the bundle.yaml file
   ```
   kubectl create ns monitoring
-  kubectl apply -f https://raw.githubusercontent.com/prometheus-operator/prometheus-operator/master/bundle.yaml -n monitoring
+  kubectl create -f ~/monitoring-lab/operator/bundle.yaml -n monitoring
   ```
 
 4. After deploying the operator wait until the Operator's Pod is up and Running
