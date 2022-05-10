@@ -1,4 +1,4 @@
-# Lab 01: Deploy Prometheus using the Operator and CRDs
+# Lab 02: Deploy Prometheus using the Operator and CRDs
 
 ## Tasks
 
